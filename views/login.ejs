@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/login.css">
+    <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
+    <script src="
+https://cdn.jsdelivr.net/npm/kute.js@2.2.4/dist/kute.min.js
+"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section class="blob-content">
+        <svg class="blob-motion" id="visual" viewBox="0 0 900 600" width="900" height="600" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1">
+            <g transform="translate(448.8719709995089 328.3618421607432)">
+                <path id="blob1" d="M186.3 -174.4C231.1 -141.4 250 -70.7 236.7 -13.3C223.4 44.1 177.8 88.2 133 113.2C88.2 138.2 44.1 144.1 1.2 142.9C-41.7 141.7 -83.4 133.4 -131.9 108.4C-180.4 83.4 -235.7 41.7 -238.5 -2.8C-241.4 -47.4 -191.8 -94.8 -143.3 -127.8C-94.8 -160.8 -47.4 -179.4 11.7 -191C70.7 -202.7 141.4 -207.4 186.3 -174.4" fill="#ffeba7"></path>
+            </g>
+            <g transform="translate(435.7697159615436 287.18496562323526)" style="visibility: hidden;">
+                <path id="blob2" d="M117.5 -121.7C146.8 -88.2 161.4 -44.1 174.7 13.3C188 70.7 200.1 141.4 170.8 178.6C141.4 215.8 70.7 219.4 10.3 209.1C-50.2 198.9 -100.4 174.7 -125.4 137.6C-150.4 100.4 -150.2 50.2 -154.8 -4.6C-159.4 -59.4 -168.8 -118.8 -143.8 -152.3C-118.8 -185.8 -59.4 -193.4 -7.7 -185.7C44.1 -178.1 88.2 -155.2 117.5 -121.7" fill="#ffeba7"></path>
+            </g>
+        </svg>
+    </section>
+    
+    <div class="section" id="loginForm">
+        <div class="container">
+            <div class="row full-height justify-content-center">
+                <div class="col-12 text-center align-self-center py-5">
+                    <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                        <h6 class="mb-0 pb-3">
+                            <span>Log In </span>
+                            <span>Sign Up</span>
+                        </h6>
+                        <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
+                        <label for="reg-log"></label>
+                        <div class="card-3d-wrap mx-auto">
+                            <div class="card-3d-wrapper">
+                                <div class="card-front">
+                                    <div class="center-wrap">
+                                        <div class="section text-center">
+                                            <h4 class="mb-4 pb-3">Log In</h4>
+                                            <form method="POST">
+                                                <div class="form-group mt-2">
+                                                    <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off" />
+                                                    <i class="input-icon uil uil-at"></i>
+                                                </div>
+                                                <div class="form-group mt-2">
+                                                    <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" />
+                                                    <i class="input-icon uil uil-lock-alt"></i>
+                                                </div>
+                                                <button href="#" class="btn mt-4" type="submit">submit</button>
+                                                <p class="error-message" style="color: red;"></p>
+                                            </form>
+                                            <p class="mb-0 mt-4 text-center" style="visibility: hidden;"></p>
+                                            <p class="mb-0 mt-4 text-center">
+                                                <a href="#0" class="link">Forgot your password?</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <div class="center-wrap">
+                                        <div class="section text-center">
+                                            <h4 class="mb-4 pb-3">Sign Up</h4>
+                                            <form action="/register"method="POST">
+                                                <div class="form-group mt-2">
+                                                    <input type="text" name="regfirstname" class="form-style" placeholder="Your First Name" id="signUpFirstName" autocomplete="off" />
+                                                    <i class="input-icon uil uil-user"></i>
+                                                </div>
+                                                <div class="form-group mt-2">
+                                                    <input type="text" name="reglastname" class="form-style" placeholder="Your Last Name" id="signUpLastName" autocomplete="off" />
+                                                    <i class="input-icon uil uil-user"></i>
+                                                </div>
+                                                <div class="form-group mt-2">
+                                                    <input type="text" name="regusername" class="form-style" placeholder="Your Username" id="signUpUsername" autocomplete="off" />
+                                                    <i class="input-icon uil uil-user"></i>
+                                                </div>
+                                                <div class="form-group mt-2">
+                                                    <input type="email" name="regemail" class="form-style" placeholder="Your Email" id="signUpEmail" autocomplete="off" />
+                                                    <i class="input-icon uil uil-at"></i>
+                                                </div>
+                                                <div class="form-group mt-2">
+                                                    <input type="password" name="regpass" class="form-style" placeholder="Your Password" id="signUpPassword" autocomplete="off" />
+                                                    <i class="input-icon uil uil-lock-alt"></i>
+                                                </div>
+                                                <button href="#" class="btn mt-4">submit</button>
+                                                <p class="error-message" style="color: red;"></p>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
+    
+    
+</body>
+</html>
