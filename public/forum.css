@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('/bg.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    width: 80%;
+    background-color: rgba(189, 186, 186, 0.021);
+    position: relative;
+    margin: 0 auto;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .row .form-group textarea {
+    width: 90%;
+    height: 200px;
+    resize: none;
+    background: transparent;
+    outline: none;
+    font-size: 24px;
+    padding: 10px 0 10px 20px;
+    border: 5px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    border-radius: 50px;
+  }
+.card {
+    width: 80%;
+    height: 600px;
+    position: relative;
+    border: 6px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .card h2 {
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 60px;
+    text-transform: uppercase;
+  }
+  
+  .card .row {
+    position: relative;
+    width: 100%;
+    display: block;
+    grid: auto / auto auto;
+    grid-gap: 30px;
+  }
+  
+  .card .row .col {
+    position: relative;
+    width: 100%;
+    margin: 30px 20px 40px 0;
+    transition: 0.5s;
+  }
+  
+  .card .row .form-group {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    color: #ffffff;
+  }
+  
+  .card .row .form-group input {
+    position: relative;
+    width: 90%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    font-size: 24px;
+    padding: 10px 0 10px 20px;
+    border: 5px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    border-radius: 50px;
+  }
+  
+  .card .row .form-group label {
+    line-height: 40px;
+    color: #ffffff;
+    font-size: 24px;
+    margin: 0 0 0 30px;
+    display: block;
+    pointer-events: none;
+  }
+  
+  .row .col:nth-child(6) {
+    margin-top: 64px;
+  }
+  
+  .card .row .form-group input:focus,
+  .card .row .form-group textarea:focus {
+    border: 5px solid #ffffff;
+    transition: all 0.5s;
+  }
+  .forum{
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .card .row input[type="submit"] {
+    border: 5px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    height: 100%;
+    width: 50%;
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 40px;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 45px;
+    transition: all 0.4s;
+    margin-top: 200px;
+    margin-left: 260px;
+  }
+  
+  .card .row input[type="submit"]:hover {
+    border: 5px solid rgba(255, 255, 255, 1);
+    color: #ffffff;
+    transition: all 0.4s;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .card .row {
+      grid-template-columns: repeat(auto-fit,minmax(70%, 1fr));
+    }
+    
+    .card {
+      padding: 20px;
+    }
+    
+    .card h2 {
+      font-size: 34px;
+    }
+    
+    .card .row input[type="submit"] {
+      width: 100%;
+    }
+  }
+.logo img {
+    margin-left: 20px;
+    max-block-size: 100px;
+}
+header {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 10px;
+    font-size: 25px;
+    transition: transform 0.2s ease-in-out;
+    padding-right: 40px;
+    font-family: "Montserrat", sans-serif;
+}
+
+nav ul li:hover {
+    transform: scale(1.1); 
+}
+
+nav ul li.login {
+    position: relative;
+    bottom: 5px;
+}
+
+nav ul li.login a {
+    display: inline-block;
+    padding: 4px 15px;
+    background-color: #ae887b;
+    color: #fff;
+    border-radius: 30px; 
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #66836d; 
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%; 
+}
+
+.MindMatters{
+
+    position: relative;
+    margin: 0 auto;
+}
+
+#mm{
+    font-size: 90px;
+    font-family: "Dela Gothic One", sans-serif;
+    font-weight: 500;
+}

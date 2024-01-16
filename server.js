@@ -73,7 +73,52 @@ app.post('/register', (req,res)=> {
 app.get('/download', (req, res) => {
     res.render('download',{title: 'Download'});
 });
+app.get('/about', (req, res) => {
+    res.render('about',{title: 'About'});
+});
+app.get('/forum', (req, res) => {
+    const db = new sqlite3.Database('./database.db');
+    db.all('SELECT * FROM forum', (err, rows) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Forum loaded");
+            res.render('forum', { title: 'Forum', rows: rows });
+        }
+    });
+});
 
+app.post('/forum', (req, res) => {
+    const title = req.body.title;
+    const message = req.body.message;
+    const db = new sqlite3.Database('./database.db');
+    db.get('INSERT INTO forum (title, message, user_id) VALUES (?,?,1)', [title, message], (err) => {
+        if(err) {
+            console.log(err);
+        }
+        else {
+            console.log("Message added");
+            db.close();
+            res.redirect('/forum');
+        }
+        
+    });
+});
+
+app.post('/deletepost', (req, res) => {
+    const postId = req.body.postId;
+    const db = new sqlite3.Database('./database.db');
+    db.run('DELETE FROM forum WHERE id = ?', [postId], (err) => {
+        if (err) {
+            console.log(err);
+            res.sendStatus(500); // Internal Server Error
+        } else {
+            console.log(`Post ${postId} deleted`);
+            res.redirect('/forum');
+        }
+    });
+});
+process.on('exit', () => db.close());
 //Setup Port
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

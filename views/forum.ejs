@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="forum.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dela+Gothic+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Dela+Gothic+One&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav>
+        <div class="logo">
+            <a href="MM_Home.html"><img src=".JPG" alt="MindMatters Logo"></a>
+        </div>
+        <ul>
+            <li><a href="About.html">About us</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="Download.html">Download</a></li>
+            <li class="login"><a href="Login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <div class="container">
+    <div class="MindMatters">
+        <h1 id="mm">GAME</h1>
+        <h1 id="mm" style="margin-top: -50px;">FORUMS</h1>
+        <h3 style="font-family: Sarabun, sans-serif; ;" >
+            Here you can share your thoughts, feelings or ideas with other people. <br>
+            You can also read other people's posts and comment on them. <br>
+    </div>
+    
+
+    
+    </div>
+    <div class="forum">
+        <% if (rows && rows.length > 0) { %>
+            <% rows.forEach((row) => { %>
+                <div class="post">
+                    <h3><%= row.title %></h3>
+                    <p><%= row.message %></p>
+                    <form action="/deletepost" method="post">
+                        <input type="hidden" name="postId" value="<%= row.id %>">
+                        <button value="submit">Delete</button>
+                    </form>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No posts available</p>
+        <% } %>
+    </div>
+    <div class="yourpost">
+        <div class="card">
+            <h2>Post Here!</h2>
+            <form action="/forum" method="POST">
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="text" id="title" name="title" required>
+                </div>
+              </div>
+          
+              <div class="col">
+                <div class="form-group">
+                  <label>Message</label>
+                  <textarea id="message" name="message" required ></textarea>
+                </div>
+              </div>
+          
+              <div class="col">
+                <input type="submit" value="Submit">
+              </div>
+            </div>
+        </form>
+          </div>
+    </div>
+</body>
+</html>
