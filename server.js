@@ -70,6 +70,10 @@ app.post('/register', (req,res)=> {
         }
 })
 
+app.get('/download', (req, res) => {
+    res.render('download',{title: 'Download'});
+});
+
 //Setup Port
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
