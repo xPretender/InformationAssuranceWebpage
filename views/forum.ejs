@@ -53,6 +53,10 @@
                         <input type="hidden" name="postId" value="<%= row.id %>">
                         <button value="submit">Delete</button>
                     </form>
+                    <form action="/updatepost" method="get">
+                        <input type="hidden" name="postId" value="<%= row.id %>">
+                        <button type="submit">Update</button>
+                    </form>
                 </div>
             <% }); %>
         <% } else { %>

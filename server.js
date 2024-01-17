@@ -118,6 +118,27 @@ app.post('/deletepost', (req, res) => {
         }
     });
 });
+
+app.get('/updatepost',(req,res) => {
+    const postId = req.query.postId;
+    const db = new sqlite3.Database('./database.db');
+    db.get('SELECT * FROM forum WHERE id = ?', [postId], (err, row) => {
+        if (err) {
+            console.log(err);
+            res.sendStatus(500); // Internal Server Error
+        } else {
+            console.log(`Post ${postId} loaded`);
+            res.render('updatepost', { title: 'Update Post', row: row });
+        }
+    });
+});
+
+app.get('/aboutus', (req, res) => {
+    res.render('aboutus',{title: 'About Us'});
+});
+
+
+
 process.on('exit', () => db.close());
 //Setup Port
 app.listen(port, () => {
