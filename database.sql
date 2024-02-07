@@ -5,7 +5,7 @@ create TABLE user(
     password TEXT NOT NULL
 )
 insert into user(username,password) values('admin','admin');
-select * from user;
+
 
 CREATE TABLE forum(
     id INTEGER PRIMARY KEY,
@@ -13,5 +13,6 @@ CREATE TABLE forum(
     message TEXT NOT NULL,
     user_id INTEGER NOT NULL
 )
-DROP TABLE forum;
+
 select * from forum;
+select * from user;

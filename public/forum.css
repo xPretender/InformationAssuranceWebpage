@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900");
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +6,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     background-image: url('/bg.svg');
     background-repeat: no-repeat;
     background-position: center;
@@ -49,12 +50,26 @@ body {
     border-radius: 50px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #66836d; ;
   }
-  
+  .cardForum {
+    width: 80%;
+    position: relative;
+    border: 6px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #66836d; ;
+  }
+  .spacer {
+    height: 100px;
+  }
   .card h2 {
-    color: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
     font-size: 60px;
     text-transform: uppercase;
+    padding-left: 35%;
   }
   
   .card .row {
@@ -63,6 +78,7 @@ body {
     display: block;
     grid: auto / auto auto;
     grid-gap: 30px;
+    padding-left: 7%;
   }
   
   .card .row .col {
@@ -86,7 +102,6 @@ body {
     background: transparent;
     outline: none;
     font-size: 24px;
-    padding: 10px 0 10px 20px;
     border: 5px solid rgba(0, 0, 0, 0.3);
     box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
     color: #ffffff;
@@ -112,19 +127,57 @@ body {
     transition: all 0.5s;
   }
   .forum{
+    font-family: 'Poppins', sans-serif;
     position: relative;
     margin: 0 auto;
     width: 80%;
-    height: 80%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     
+  }
+
+  .forum input,button{
+    border: 5px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
+   
+    height: 100%;
+    width: 50%;
+    cursor: pointer;
+    outline: none;
+    background: transparent;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 40px;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 45px;
+    transition: all 0.4s;
+    margin-left: 23%;
+    margin-top: 20px;
+  }
+
+  .forum input:hover, .forum button:hover{
+    border: 5px solid rgba(255, 255, 255, 1);
+    color: bisque;
+    transition: all 0.4s;
+  }
+  .postTitle{
+    color: #ffffff;
+    font-size: 60px;
+    text-transform: uppercase;
+    padding: 3%;
+  }
+  .postMsg{
+    color: #ffffff;
+    font-size: 30px;
+    text-transform: uppercase;
+    padding: 3%;
   }
   .card .row input[type="submit"] {
     border: 5px solid rgba(0, 0, 0, 0.3);
     box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.3);
-    padding: 10px;
+   
     height: 100%;
     width: 50%;
     cursor: pointer;
@@ -138,12 +191,12 @@ body {
     border-radius: 45px;
     transition: all 0.4s;
     margin-top: 200px;
-    margin-left: 260px;
+    margin-left: 210px;
   }
   
   .card .row input[type="submit"]:hover {
     border: 5px solid rgba(255, 255, 255, 1);
-    color: #ffffff;
+    color: bisque;
     transition: all 0.4s;
   }
   
@@ -235,7 +288,7 @@ nav ul li a:hover::after {
 }
 
 .MindMatters{
-
+    
     position: relative;
     margin: 0 auto;
 }
@@ -244,4 +297,6 @@ nav ul li a:hover::after {
     font-size: 90px;
     font-family: "Dela Gothic One", sans-serif;
     font-weight: 500;
+    padding: 10px;
+    text-align: center;
 }

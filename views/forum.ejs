@@ -23,14 +23,14 @@
             <a href="MM_Home.html"><img src=".JPG" alt="MindMatters Logo"></a>
         </div>
         <ul>
-            <li><a href="About.html">About us</a></li>
-            <li><a href="Services.html">Services</a></li>
-            <li><a href="Download.html">Download</a></li>
-            <li class="login"><a href="Login.html">Login</a></li>
+            <li><a href="/about">About us</a></li>
+            <li><a href="/forum">Forum</a></li>
+            <li><a href="/download">Download</a></li>
+            <li class="login"><a href="/login">Login</a></li>
         </ul>
     </nav>
 </header>
-
+<div class="spacer"></div>
     <div class="container">
     <div class="MindMatters">
         <h1 id="mm">GAME</h1>
@@ -44,11 +44,12 @@
     
     </div>
     <div class="forum">
+        <div class="cardForum">
         <% if (rows && rows.length > 0) { %>
             <% rows.forEach((row) => { %>
                 <div class="post">
-                    <h3><%= row.title %></h3>
-                    <p><%= row.message %></p>
+                    <h3 class="postTitle"><%= row.title %></h3>
+                    <p class="postMsg"><%= row.message %></p>
                     <form action="/deletepost" method="post">
                         <input type="hidden" name="postId" value="<%= row.id %>">
                         <button value="submit">Delete</button>
@@ -63,6 +64,8 @@
             <p>No posts available</p>
         <% } %>
     </div>
+    </div>
+    <div class="spacer"></div>
     <div class="yourpost">
         <div class="card">
             <h2>Post Here!</h2>
@@ -89,5 +92,6 @@
         </form>
           </div>
     </div>
+    <div class="spacer"></div>
 </body>
 </html>

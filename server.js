@@ -1,7 +1,7 @@
 //Import Dependencies
 const express = require ('express');
 const app = express();
-const sqlite3 = require('sqlite3');
+const mysql = require ('mysql2');
 const port = process.env.PORT || 3000;
 
 //Setup Dependencies
@@ -10,6 +10,21 @@ app.use(express.static(__dirname + '/public'));
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'lolbukid123',
+    database: 'infoSec'
+});
+
+db.connect((err) => {
+    if (err) {
+        console.error('Error connecting to MySQL database:', err);
+        return;
+    }
+    console.log('Connected to MySQL database');
+});
 //Routes
 
 //Get for Home Page
@@ -28,8 +43,7 @@ app.post('/login', (req, res) => {
     if (username === "" || password === "") {
         res.status(400).json({ error: "Please enter a username and password" });
     } else {
-        const db = new sqlite3.Database('./database.db');
-        db.get('SELECT * FROM user WHERE username = ? AND password = ? ', [username, password], (err, row) => {
+        db.query('SELECT * FROM users WHERE username = ? AND password = ? ', [username, password], (err, row) => {
             if (err) {
                 console.error(err);
                 res.status(500).json({ error: "Internal Server Error" });
@@ -43,26 +57,24 @@ app.post('/login', (req, res) => {
             }
         });
 
-        // Close the database connection after use
-        db.close();
     }
 });
 
 //Post for Register
 app.post('/register', (req,res)=> {
-    const username = req.body.regemail;
+    const email = req.body.regemail;
+    const username = req.body.regusername;
     const password = req.body.regpass;
+    const authority = 1;
     if (username == "" || password == "") {
         window.alert("Please enter a username and password");
         } else{
-    const db = new sqlite3.Database('./database.db');
-    db.get('INSERT INTO user (username, password) VALUES (?,?)', [username, password], (err) => {
+    db.query('INSERT INTO users (username,email,password,authority) VALUES (?,?,?,?)', [username,email,password,authority], (err) => {
         if(err) {
             console.log(err);
         }
         else {
             console.log("User added");
-            db.close();
             res.redirect('/login');
         }
         
@@ -74,11 +86,10 @@ app.get('/download', (req, res) => {
     res.render('download',{title: 'Download'});
 });
 app.get('/about', (req, res) => {
-    res.render('about',{title: 'About'});
+    res.render('aboutus',{title: 'About'});
 });
 app.get('/forum', (req, res) => {
-    const db = new sqlite3.Database('./database.db');
-    db.all('SELECT * FROM forum', (err, rows) => {
+    db.query('SELECT * FROM forum', (err, rows) => {
         if (err) {
             console.log(err);
         } else {
@@ -91,14 +102,12 @@ app.get('/forum', (req, res) => {
 app.post('/forum', (req, res) => {
     const title = req.body.title;
     const message = req.body.message;
-    const db = new sqlite3.Database('./database.db');
-    db.get('INSERT INTO forum (title, message, user_id) VALUES (?,?,1)', [title, message], (err) => {
+    db.query('INSERT INTO forum (title, message, userId) VALUES (?,?,1)', [title, message], (err) => {
         if(err) {
             console.log(err);
         }
         else {
             console.log("Message added");
-            db.close();
             res.redirect('/forum');
         }
         
@@ -107,8 +116,7 @@ app.post('/forum', (req, res) => {
 
 app.post('/deletepost', (req, res) => {
     const postId = req.body.postId;
-    const db = new sqlite3.Database('./database.db');
-    db.run('DELETE FROM forum WHERE id = ?', [postId], (err) => {
+    db.query('DELETE FROM forum WHERE id = ?', [postId], (err) => {
         if (err) {
             console.log(err);
             res.sendStatus(500); // Internal Server Error
@@ -121,8 +129,7 @@ app.post('/deletepost', (req, res) => {
 
 app.get('/updatepost',(req,res) => {
     const postId = req.query.postId;
-    const db = new sqlite3.Database('./database.db');
-    db.get('SELECT * FROM forum WHERE id = ?', [postId], (err, row) => {
+    db.query('SELECT * FROM forum WHERE id = ?', [postId], (err, row) => {
         if (err) {
             console.log(err);
             res.sendStatus(500); // Internal Server Error
@@ -133,9 +140,7 @@ app.get('/updatepost',(req,res) => {
     });
 });
 
-app.get('/aboutus', (req, res) => {
-    res.render('aboutus',{title: 'About Us'});
-});
+
 
 
 

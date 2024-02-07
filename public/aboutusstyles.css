@@ -19,7 +19,7 @@ body {
 
 .container {
     width: 80%;
-    height: 80%;
+    height: 85%;
     background-color: rgba(189, 186, 186, 0.021);
     border-radius: 45px;
     box-shadow: 0 0 100px rgba(0, 0, 0, 0.8);
@@ -165,6 +165,9 @@ nav ul li a:hover::after {
   /* On smaller screens, decrease text size */
   @media only screen and (max-width: 300px) {
     .text {font-size: 11px}
+  }
+  .spacer {
+    height: 100px;
   }
 
   
