@@ -1,18 +1,14 @@
+create database infoSec;
+use infoSec;
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    authority INT not NULL
+);
 
-create TABLE user(
-    id INTEGER PRIMARY KEY,
-    username TEXT NOT NULL,
-    password TEXT NOT NULL
-)
-insert into user(username,password) values('admin','admin');
+INSERT INTO users (username, email, password, authority)
+VALUES ('admin', 'admin@example.com', 'admin', 5);
 
-
-CREATE TABLE forum(
-    id INTEGER PRIMARY KEY,
-    title TEXT NOT NULL,
-    message TEXT NOT NULL,
-    user_id INTEGER NOT NULL
-)
-
-select * from forum;
-select * from user;
+select * from users;
